@@ -1,4 +1,4 @@
-# _Outage Tracker_
+# Outage Tracker
 
 #### By _**Matt Eichsteadt**_
 
