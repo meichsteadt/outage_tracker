@@ -1,8 +1,8 @@
 # Outage Tracker
 
-#### By _**Matt Eichsteadt**_
+#### By **Matt Eichsteadt**
 
-#### _This web-app will help users start and track a outages of their applications_
+#### This web-app will help users start and track outages of their applications
 
 ## Technologies Used
 
