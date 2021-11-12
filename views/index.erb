@@ -1,0 +1,77 @@
+<main>
+  <div class="row">
+    <div class="col-sm-5">
+      <!-- Flash Text -->
+      <p><%= session[:text] %></p>
+      <% session[:text] = nil %>
+      <br>
+
+      <!-- User Input -->
+      <form action="command" method="post" class="row g-3 align-items-center">
+        <div class="col-8">
+          <div class="input-group">
+            <input class="form-control" type="text" name="command_text" placeholder="Enter command/message">
+          </div>
+        </div>
+        <div class="col-4">
+          <button type="submit" name="button" class="btn btn-secondary">Submit</button>
+        </div>
+      </form>
+      <br>
+
+      <!-- Command Glossary -->
+      <h5>Valid Commands*</h5>
+      <ul>
+        <!-- Gets all valid commands -->
+        <% Command.commands.each do |k,v| %>
+          <li><code><%= k %></code></li>
+        <% end %>
+        <li>During an outage, all other inputs will be stored as a message</li>
+      </ul>
+      <hr>
+
+      <!-- Shows details of current outage -->
+      <h1>Current Outage</h1>
+      <ul>
+        <% if Outage.current_outage %>
+          <% Outage.current_outage.messages.each do |message| %>
+            <li><span class="timestamp"><%= message.formatted_timestamp %></span>:    <%= message.text %></li>
+          <% end %>
+        <% else %>
+          <p>No current outages. Type <code>start_outage</code> to start an outage</p>
+        <% end %>
+      </ul>
+    </div>
+
+    <!-- Shows details of outage history -->
+    <div class="col-sm-7 border-left">
+      <h4>Outage History</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Last Message</th>
+            <th># of Messages</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Outage.all.each do |outage| %>
+            <tr>
+              <td><%= outage.id %></td>
+              <td><%= outage.formatted_start_time %></td>
+              <td><%= outage.formatted_end_time %></td>
+              <td><%= outage.messages.last.text %></td>
+              <td><%= outage.messages.count %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+<footer>
+  <p class="footnote">*Only one outage can exist at a time. Trying to start an additional outage when one exists, or trying to end an outage when there isn't one will result in an error message</p>
+</footer>

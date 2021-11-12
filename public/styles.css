@@ -1,0 +1,22 @@
+.container {
+  margin-top: 20px !important;
+}
+
+.timestamp {
+  font-family: monospace;
+}
+
+.footnote {
+  font-size: .8em;
+  color: #999;
+}
+
+footer {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+main {
+  min-height: calc(100vh - 50px - 20px);
+}
