@@ -21,7 +21,7 @@ class Command
     #defines valid commmands
     {
       'start_outage': lambda {Outage.start_outage},
-      'end_outage': lambda {Outage.current_outage.end_outage}
+      'end_outage': lambda {Outage.end_outage}
     }
   end
 end

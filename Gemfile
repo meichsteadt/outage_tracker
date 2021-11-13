@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'pry'
+gem 'thin'
+gem 'puma'
+gem 'reel'
+gem 'http'
+gem 'webrick'

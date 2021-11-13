@@ -1,7 +1,7 @@
 class Outage
   @@outages = []
 
-  attr_reader :start_time, :end_time, :messages, :status, :id, :formatted_start_time, :formatted_end_time
+  attr_accessor :start_time, :end_time, :messages, :status, :id, :formatted_start_time, :formatted_end_time
 
   def initialize
     #@start_time:Timestamp - Start time of outage
@@ -26,11 +26,6 @@ class Outage
     return message
   end
 
-  def id=(id)
-    #Saves the id of the outage
-    @id = id
-  end
-
   def self.start_outage
     #Starts an outage, unless an open outage already exists
     unless Outage.current_outage
@@ -43,12 +38,13 @@ class Outage
     end
   end
 
-  def end_outage
+  def self.end_outage
     #Ends an outage, unlesss no open outage exists
     if Outage.current_outage
-      @end_time = Time.now
-      @formatted_end_time = @end_time.strftime("%Y/%m/%d-%H:%M")
-      @status = "CLOSED"
+      outage = self.current_outage
+      outage.end_time = Time.now
+      outage.formatted_end_time = outage.end_time.strftime("%Y/%m/%d-%H:%M")
+      outage.status = "CLOSED"
       return {message: "Outage ended! 🥳  🎊  🍾"}
     else
       return {message: 'There is no current outage!'}

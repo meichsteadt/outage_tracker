@@ -1,7 +1,5 @@
 # Outage Tracker
 
-#### By **Matt Eichsteadt**
-
 #### This web-app will help users start and track outages of their applications
 
 ## Technologies Used
@@ -21,7 +19,3 @@
   ruby app.rb
 ```
 * Then navigate to [localhost:4567](http://localhost:4567) in your web browser.
-
-This should open a web browser with the functioning application! If there's any problems feel free to reach me at matteichsteadt@gmail.com
-
-Copyright (c) _2021_ _Matt Eichsteadt_

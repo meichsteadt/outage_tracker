@@ -1,6 +1,4 @@
 require 'sinatra'
-require "sinatra/reloader" if development?
-require 'pry'
 
 #require the entire lib file
 Dir["./lib/*.rb"].each {|file| require file }
