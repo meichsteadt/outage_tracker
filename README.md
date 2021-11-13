@@ -19,3 +19,5 @@
   ruby app.rb
 ```
 * Then navigate to [localhost:4567](http://localhost:4567) in your web browser.
+
+* Or view it [here](https://outage-tracker.herokuapp.com/).
