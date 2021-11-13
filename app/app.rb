@@ -1,7 +1,7 @@
 require 'sinatra'
 
 #require the entire lib file
-Dir["./lib/*.rb"].each {|file| require file }
+Dir["./app/lib/*.rb"].each {|file| require file }
 
 #enable sessions to display flash messages
 enable :sessions
